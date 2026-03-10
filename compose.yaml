@@ -1,0 +1,34 @@
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "FABRIC"
+      VERSION: 1.21.1
+      DIFFICULTY: "3"
+      USES_PLUGINS: TRUE
+      ALLOW_FLIGHT: TRUE
+      MEMORY: "8192M"
+      VIEW_DISTANCE: "24"
+      WHITELIST: |
+        ItsaEnderDragon
+        manning_w
+        yambots
+        SilveredDuckling
+        Anksharskarp
+      OPS: |
+        ItsaEnderDragon
+      MODRINTH_PROJECTS: |
+        fabric-api
+        owo-lib
+        too-fast
+        deeperdarker
+        oneplayersleep
+        aether
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
